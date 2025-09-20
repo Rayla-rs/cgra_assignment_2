@@ -1,0 +1,142 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgpa51pj1cip1"]
+
+[ext_resource type="Script" uid="uid://2bhqmo217vx6" path="res://shader_controller.gd" id="1_1bvp3"]
+[ext_resource type="ArrayMesh" uid="uid://bo6yfdmo3wq4" path="res://bunny.obj" id="2_h2yge"]
+[ext_resource type="Material" uid="uid://cj0hjdnwnhtl5" path="res://material.tres" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://bcr1uorp6t6o0" path="res://bunny.gd" id="3_h2yge"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.371365, 1.7062)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0643888, -0.706489, 0.704788, 0.0642765, 0.707724, 0.703559, -0.995853, 0, 0.0909801, 0.27239, -0.0114353, 1.40086)
+
+[node name="ShaderController" type="AspectRatioContainer" parent="DirectionalLight3D" node_paths=PackedStringArray("bunny")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 0.5
+alignment_horizontal = 0
+script = ExtResource("1_1bvp3")
+bunny = NodePath("../../Bunny")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DirectionalLight3D/ShaderController"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DirectionalLight3D/ShaderController/VBoxContainer"]
+layout_mode = 2
+text = "Controls"
+
+[node name="HSeparator" type="HSeparator" parent="DirectionalLight3D/ShaderController/VBoxContainer"]
+layout_mode = 2
+
+[node name="BaseColorBox" type="HBoxContainer" parent="DirectionalLight3D/ShaderController/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DirectionalLight3D/ShaderController/VBoxContainer/BaseColorBox"]
+layout_mode = 2
+text = "Base Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="DirectionalLight3D/ShaderController/VBoxContainer/BaseColorBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.724869, 0.59151, 0.889644, 1)
+edit_alpha = false
+
+[node name="SpecColorBox" type="HBoxContainer" parent="DirectionalLight3D/ShaderController/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DirectionalLight3D/ShaderController/VBoxContainer/SpecColorBox"]
+layout_mode = 2
+text = "Spec Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="DirectionalLight3D/ShaderController/VBoxContainer/SpecColorBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+
+[node name="AmbientBox" type="HBoxContainer" parent="DirectionalLight3D/ShaderController/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DirectionalLight3D/ShaderController/VBoxContainer/AmbientBox"]
+layout_mode = 2
+text = "Ambient"
+
+[node name="HSlider" type="HSlider" parent="DirectionalLight3D/ShaderController/VBoxContainer/AmbientBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 5.0
+step = 0.01
+value = 0.44
+
+[node name="DiffuseBox" type="HBoxContainer" parent="DirectionalLight3D/ShaderController/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DirectionalLight3D/ShaderController/VBoxContainer/DiffuseBox"]
+layout_mode = 2
+text = "Diffuse"
+
+[node name="HSlider" type="HSlider" parent="DirectionalLight3D/ShaderController/VBoxContainer/DiffuseBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 5.0
+step = 0.01
+value = 1.57
+
+[node name="ShininessBox" type="HBoxContainer" parent="DirectionalLight3D/ShaderController/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DirectionalLight3D/ShaderController/VBoxContainer/ShininessBox"]
+layout_mode = 2
+text = "Shininess"
+
+[node name="HSlider" type="HSlider" parent="DirectionalLight3D/ShaderController/VBoxContainer/ShininessBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 5.0
+step = 0.01
+value = 1.65
+
+[node name="NoiseBox" type="HBoxContainer" parent="DirectionalLight3D/ShaderController/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DirectionalLight3D/ShaderController/VBoxContainer/NoiseBox"]
+layout_mode = 2
+text = "Noise Strength"
+
+[node name="HSlider" type="HSlider" parent="DirectionalLight3D/ShaderController/VBoxContainer/NoiseBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 0.5
+step = 0.001
+value = 0.1
+
+[node name="NoiseColorBox" type="HBoxContainer" parent="DirectionalLight3D/ShaderController/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DirectionalLight3D/ShaderController/VBoxContainer/NoiseColorBox"]
+layout_mode = 2
+text = "Distortion Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="DirectionalLight3D/ShaderController/VBoxContainer/NoiseColorBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0.815557, 0.799621, 1)
+
+[node name="Bunny" type="MeshInstance3D" parent="." node_paths=PackedStringArray("light")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0.179862, -0.435456, 0)
+material_override = ExtResource("3_1bvp3")
+instance_shader_parameters/base_color = Color(0.347853, 0.20267, 0.0310736, 1)
+instance_shader_parameters/light_dir = Vector3(-0.780394, 1.44242, 0.090573)
+instance_shader_parameters/light_pos = Vector3(0.27239, -0.0114353, 1.40086)
+instance_shader_parameters/specular_color = Color(0.561648, 0.403398, 0.528623, 1)
+mesh = ExtResource("2_h2yge")
+skeleton = NodePath("../Camera3D")
+surface_material_override/0 = ExtResource("3_1bvp3")
+script = ExtResource("3_h2yge")
+light = NodePath("../DirectionalLight3D")

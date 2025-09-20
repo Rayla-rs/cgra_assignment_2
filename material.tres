@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cj0hjdnwnhtl5"]
+
+[ext_resource type="Shader" uid="uid://br7avibw38tti" path="res://bunny.gdshader" id="1_rqskn"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rqskn")
+shader_parameter/light_color = Color(0.946038, 0.841033, 0.837577, 1)
+shader_parameter/light_intensity = 1.68
+shader_parameter/noise_speed = 10.735
