@@ -13,5 +13,9 @@ I implimented basic user controls and setup the project with the Stanford Bunny.
 Started my Phong lighting model and exposed various fields to the user interface. I am using a directional light.
 
 ## Challenge
-For the challenge, I implimented a offset to the y value of each vertex using trig functions and the globally exposed time variable to create a distortion effect. While relativly simple to impliment, paired with a dither or a pulse, this effect can be used to add flavor :P
+For the challenge, I implimented a offset to the y value of each vertex using trig functions and the globally exposed time variable to create a distortion effect. While relativly simple to impliment, paired with a dither or a pulse, this effect can be used to add flavor to an unstable object.
 
+
+## TODO
+Change light dir
+photos
