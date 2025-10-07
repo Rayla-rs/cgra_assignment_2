@@ -8,12 +8,12 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.371365, 1.7062)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.280055, 1.90874)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0643888, -0.706489, 0.704788, 0.0642765, 0.707724, 0.703559, -0.995853, 0, 0.0909801, 0.27239, -0.0114353, 1.40086)
 
-[node name="ShaderController" type="AspectRatioContainer" parent="DirectionalLight3D" node_paths=PackedStringArray("bunny")]
+[node name="ShaderController" type="AspectRatioContainer" parent="DirectionalLight3D" node_paths=PackedStringArray("bunny", "light", "cam")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,6 +23,8 @@ ratio = 0.5
 alignment_horizontal = 0
 script = ExtResource("1_1bvp3")
 bunny = NodePath("../../Bunny")
+light = NodePath("..")
+cam = NodePath("../../Camera3D")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DirectionalLight3D/ShaderController"]
 layout_mode = 2
@@ -114,7 +116,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 max_value = 0.5
 step = 0.001
-value = 0.1
 
 [node name="NoiseColorBox" type="HBoxContainer" parent="DirectionalLight3D/ShaderController/VBoxContainer"]
 layout_mode = 2
@@ -129,7 +130,7 @@ size_flags_horizontal = 3
 color = Color(0, 0.815557, 0.799621, 1)
 
 [node name="Bunny" type="MeshInstance3D" parent="." node_paths=PackedStringArray("light")]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0.179862, -0.435456, 0)
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0.179862, 0, 0)
 material_override = ExtResource("3_1bvp3")
 instance_shader_parameters/base_color = Color(0.347853, 0.20267, 0.0310736, 1)
 instance_shader_parameters/light_dir = Vector3(-0.780393, 1.44242, 0.0905729)
